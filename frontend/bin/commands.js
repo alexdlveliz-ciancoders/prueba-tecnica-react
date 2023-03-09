@@ -3,7 +3,7 @@ const config = require('config');
 const colors = require('colors');
 
 const host = config.get('host') || 'localhost';
-const port = config.get('port') || '8080';
+const port = config.get('port') || '8000';
 
 const option = process.argv[2];
 
