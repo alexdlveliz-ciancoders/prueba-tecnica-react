@@ -31,7 +31,7 @@ class EmpleadoViewset(viewsets.ModelViewSet):
     def list(self, request, *args, **kwargs):
         empleado_serializer = self.get_serializer(self.get_queryset(), many=True)
         if empleado_serializer:
-            return Response(empleado_serializer.data, status=status.HTTP_200_OK)
+            return Response({'results': empleado_serializer.data, "count": self.get_queryset().count()}, status=status.HTTP_200_OK)
         return Response(empleado_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     def create(self, request, *args, **kwargs):
