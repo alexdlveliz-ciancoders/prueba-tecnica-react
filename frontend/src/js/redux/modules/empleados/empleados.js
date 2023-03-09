@@ -1,5 +1,5 @@
 import { handleActions } from "redux-actions";
-import { api } from "api"
+import { api } from "../../../utility/api";
 
 const LOADER = 'EMPLEADO_LOADER'
 const LIST_EMPLEADOS = 'LIST_EMPLEADOS'

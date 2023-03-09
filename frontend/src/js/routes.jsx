@@ -21,6 +21,7 @@ import Grids from "./common/components/Examples/Grids";
 import Notificaciones from './common/components/Examples/Notificaciones';
 import ExampleTabs from './common/components/Examples/Tabs/Tabs';
 import ListadoEmpleados from './common/components/Pages/Empleados';
+import updateEmpleado from './common/components/Pages/Empleados/updateEmpleado'
 require('../style/index.css');
 
 module.exports = (
@@ -36,6 +37,7 @@ module.exports = (
                 <ProtectedRoute exact path="/notifications" component={Notificaciones} />
                 <ProtectedRoute exact path="/tabs" component={ExampleTabs} />
                 <ProtectedRoute exact path="/empleados" component={ListadoEmpleados} />
+                <ProtectedRoute exact path="/updateempleado/:id/editar" component={updateEmpleado} />
                 <Route component={NotFound} />
             </Switch>
         </div>

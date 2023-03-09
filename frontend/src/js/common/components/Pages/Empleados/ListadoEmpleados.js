@@ -14,7 +14,7 @@ class ListadoEmpleados extends Component {
         const { data, loader } = this.props
         return (
             <div className="py-4">
-                <h2>Listado de empleadosss</h2>
+                <h2>Listado de empleados</h2>
                 <div className="row">
                     <div className="mb-4 col-lg-12">
                         <div className="mb-4 card card-small">
@@ -42,7 +42,7 @@ class ListadoEmpleados extends Component {
                                     <TableHeaderColumn
                                         dataField="id"
                                         dataAlign="center"
-                                        dataFormat={standardActions({ editar: 'empleados', eliminar: () => {} })}
+                                        dataFormat={standardActions({ editar: 'updateempleado', eliminar: () => {} })}
                                     >
                                         Acciones
                                     </TableHeaderColumn>
