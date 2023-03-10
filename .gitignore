@@ -103,7 +103,7 @@ frontend/dist
 models.png
 codealike.json
 # ingore virtual env
-venv
+# venv
 
 package-lock.json
 
