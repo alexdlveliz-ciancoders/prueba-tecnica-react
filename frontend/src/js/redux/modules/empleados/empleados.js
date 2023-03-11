@@ -1,6 +1,8 @@
 import { handleActions } from "redux-actions";
 import { api } from "api"
-
+import { initialize as initializeForm } from 'redux-form';
+import { NotificationManager } from "react-notifications";
+import { goBack, push } from "react-router-redux";
 const LOADER = 'EMPLEADO_LOADER'
 const LIST_EMPLEADOS = 'LIST_EMPLEADOS'
 const EMPLEADO = 'EMPLEADO'
@@ -37,9 +39,60 @@ const listar = (page = 1) => (dispatch, getStore) => {
             dispatch(setLoader(false))
         })
 }
+const getEmpleado = (id) => (dispatch, getStore) => {
+
+    dispatch(setLoader(true))
+    api.get(`empleados/${id}`, {})
+        .then(response => {
+            console.log('res',response)
+            dispatch(initializeForm('empleado', response));
+            dispatch(setItem(response))
+        })
+        .catch(() => {
+            dispatch(setItem({}))
+        })
+        .finally(() => {
+            dispatch(setLoader(false))
+        })
+}
+const updateEmpleado = (data = {}, attachments=[]) => (dispatch, getStore) => {
+
+    dispatch(setLoader(true))
+    api.putAttachments(`empleados/update_empleado`, data, attachments)
+        .then(response => {
+            console.log('res',response)
+            dispatch(setItem(response))
+            NotificationManager.success('Datos actualizados exitosamente', 'Satisfactorio', 1000);
+            dispatch(goBack());
+        })
+        .catch(() => {
+            NotificationManager.error('Credenciales incorrectas, vuelva a intentar', 'ERROR', 0);
+        })
+        .finally(() => {
+            dispatch(setLoader(false))
+        })
+}
+const deleteEmpleado = (id) => (dispatch, getStore) => {
+
+    dispatch(setLoader(true))
+    api.eliminar(`empleados/${id}`, {})
+        .then(response => {
+            dispatch(listar())
+            NotificationManager.success('Empleado eliminado exitosamente', 'Satisfactorio', 1000);
+        })
+        .catch(() => {
+            NotificationManager.error('Credenciales incorrectas, vuelva a intentar', 'ERROR', 0);
+        })
+        .finally(() => {
+            dispatch(setLoader(false))
+        })
+}
 
 export const actions = {
-    listar
+    listar,
+    getEmpleado,
+    updateEmpleado,
+    deleteEmpleado
 }
 
 export const reducers = {
@@ -54,7 +107,14 @@ export const reducers = {
             ...state,
             data
         }
+    },
+    [EMPLEADO]: (state, { item }) => {
+        return {
+            ...state,
+            item
+        }
     }
+
 }
 
 export const initialState = {

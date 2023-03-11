@@ -29,6 +29,4 @@ class Profile extends Component {
     }
 }
 
-export default reduxForm({
-    form: 'profile', // a unique identifier for this form
-})(Profile);
+export default Profile

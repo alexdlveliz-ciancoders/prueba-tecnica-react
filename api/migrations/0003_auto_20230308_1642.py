@@ -14,6 +14,16 @@ def initial_data(apps, schema_editor):
         nombre="Josué",
         apellido="Méndez"
     )
+    Empleado.objects.create(
+        codigo="A3",
+        nombre="Alfonso",
+        apellido="Lazo"
+    )
+    Empleado.objects.create(
+        codigo="A4",
+        nombre="Carlos",
+        apellido="Santana"
+    )
 
 class Migration(migrations.Migration):
 

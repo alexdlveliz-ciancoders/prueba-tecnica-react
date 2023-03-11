@@ -9,7 +9,10 @@ class ListadoEmpleados extends Component {
         const { listar } = this.props
         listar()
     }
-
+    eliminar(id){
+     const { deleteEmpleado } = this.props
+     deleteEmpleado(id)
+    }
     render() {
         const { data, loader } = this.props
         return (
@@ -42,7 +45,7 @@ class ListadoEmpleados extends Component {
                                     <TableHeaderColumn
                                         dataField="id"
                                         dataAlign="center"
-                                        dataFormat={standardActions({ editar: 'empleados', eliminar: () => {} })}
+                                        dataFormat={standardActions({ editar: 'empleados', eliminar: (id)=>this.eliminar(id) })}
                                     >
                                         Acciones
                                     </TableHeaderColumn>
