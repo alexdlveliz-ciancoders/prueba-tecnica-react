@@ -111,7 +111,7 @@
     "react-select": "^2.4.4",
     "react-switch": "^3.0.4",
     "reactstrap": "^8.0.0",
-    "redux": "^4.0.1",
+    "redux": "^4.2.1",
     "redux-actions": "^2.6.3",
     "redux-form": "^7.4.2",
     "redux-saga": "^0.16.0",
