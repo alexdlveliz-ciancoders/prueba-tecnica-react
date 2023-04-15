@@ -84,7 +84,7 @@
     "webpack-s3-plugin": "^1.0.0-rc.0"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^4.6.2",
     "classnames": "^2.2.6",
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
