@@ -26,3 +26,13 @@ class EmpleadoViewset(viewsets.ModelViewSet):
         queryset = Empleado.objects.all()
         serializer = EmpleadoReadSerializer(queryset, many=True)
         return Response({"results": serializer.data, "count": queryset.count()})
+
+    def create(self, request, *args, **kwargs):
+        data = request.data
+        empleado = Empleado.objects.create(
+            codigo=data.get('codigo'),
+            nombre=data.get('nombre'),
+            apellido=data.get('apellido')
+        )
+        serializer = EmpleadoReadSerializer(empleado)
+        return Response(serializer.data)
