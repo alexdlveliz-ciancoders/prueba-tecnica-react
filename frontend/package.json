@@ -116,7 +116,7 @@
     "redux-form": "^7.4.2",
     "redux-saga": "^0.16.0",
     "redux-thunk": "^2.2.0",
-    "reselect": "^4.0.0",
+    "reselect": "^4.1.7",
     "superagent": "^5.1.0",
     "sweetalert2": "^8.13.0",
     "validate-redux-form": "^0.2.0",
